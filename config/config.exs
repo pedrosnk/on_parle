@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :ils_parlent, key: :value
+#     config :on_parle, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:ils_parlent, :key)
+#     Application.get_env(:on_parle, :key)
 #
 # Or configure a 3rd-party app:
 #
