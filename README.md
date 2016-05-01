@@ -7,3 +7,7 @@ A library for phonetics comprehension.
 * Checkout
 * run `mix test`
 * have fun
+
+# Implemented algorithms
+
+* metaphone
