@@ -2,6 +2,10 @@ defmodule OnParle do
 
   @replaceRule ~r/[^A-Z]/
 
+  @doc """
+  This is the implementation of the metaphone algorithm, receiving a word
+  and returning a representation of the word on plain English
+  """
   @spec metaphone(String.t) :: String.t
   def metaphone word do
     phonetic = word
@@ -13,7 +17,7 @@ defmodule OnParle do
   end
 
 
-  @rules [
+  @metaphone_rules [
     [~r/([BCDFHJKLMNPQRSTVWXYZ])\1+/, "\\1"],
     [~r/^AE/, "E"],
     [~r/^[GKP]N/, "N"],
@@ -42,7 +46,7 @@ defmodule OnParle do
     [~r/(?!^)[AEIOU]+/, ""]
   ]
   defp metaphone_apply_rules word do
-    Enum.reduce @rules, word, fn rule, acc ->
+    Enum.reduce @metaphone_rules, word, fn rule, acc ->
       expression = Enum.at rule, 0
       replacement = Enum.at rule, 1
       String.replace acc, expression, replacement
