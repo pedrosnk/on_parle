@@ -5,17 +5,16 @@ defmodule OnParle do
   @doc """
   This is the implementation of the metaphone algorithm, receiving a word
   and returning a representation of the word on plain English
+
+  more about metaphone: https://en.wikipedia.org/wiki/Metaphone
   """
   @spec metaphone(String.t) :: String.t
   def metaphone word do
-    phonetic = word
+    word
       |> String.upcase()
       |> String.replace(@replaceRule, "")
       |> metaphone_apply_rules()
-
-    phonetic
   end
-
 
   @metaphone_rules [
     [~r/([BCDFHJKLMNPQRSTVWXYZ])\1+/, "\\1"],
