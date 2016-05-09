@@ -1,6 +1,6 @@
 defmodule OnParle do
 
-  @replaceRule ~r/[^A-Z]/
+  @replace_rule ~r/[^A-Z]/
 
   @doc """
   This is the implementation of the metaphone algorithm, receiving a word
@@ -12,7 +12,7 @@ defmodule OnParle do
   def metaphone word do
     word
       |> String.upcase()
-      |> String.replace(@replaceRule, "")
+      |> String.replace(@replace_rule, "")
       |> metaphone_apply_rules()
   end
 
